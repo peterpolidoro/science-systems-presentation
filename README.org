@@ -1,0 +1,15 @@
+#+TITLE: science-systems-presentation
+#+AUTHOR: Peter Polidoro
+#+EMAIL: peterpolidoro@gmail.com
+
+* Repository Information
+  - Author :: Peter Polidoro
+  - License :: BSD
+
+  [[https://peterpolidoro.github.io/science-systems-presentation/]]
+
+* Presentation
+
+  [[https://peterpolidoro.github.io/science-systems-presentation/][Slides]]
+
+  [[https://peterpolidoro.github.io/science-systems-presentation/text][Text]]
