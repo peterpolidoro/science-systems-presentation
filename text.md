@@ -46,3 +46,61 @@ though, to making that science system more complex. Adding automation, for
 example, can help collect larger quantities of data in a shorter amount of time
 and in a more repeatable fashion, freeing scientists to use their brains and
 time for more interesting and challenging aspects of the research.
+
+Kristin and Alice and others did a brilliant job of automating the observation
+of fly behaviors using cameras, image processing, and machine learning. This
+automation vastly increased the amount of data collected and the number of
+researchers capable of collecting it.
+
+Michael then asked me to automate the interaction aspect of the experiments
+using motors, controllers, and software to replace the manual motions of the
+researchers' hands on the magnet. I mistakenly thought this was an easy problem
+at first, but I found it fascinating enough that I have been working on similar
+experimental rigs and projects ever since.
+
+The basic problem of automating magnet interactions with flies is pretty
+straightforward. You observe the fly and the magnet with a camera, process the
+camera images, and then send motion commands to the motor controllers. I assumed
+the main issue was just making that happen quickly and accurately enough to have
+acceptable performance. Really, though, I found the bigger challenge to be doing
+all of that along with everything else a researcher might reasonably expect from
+a scientific instrument, like saving the data, interacting with the user, being
+easy enough to understand to operate and modify by someone who is not
+necessarily an experienced programmer. I was struggling to keep the software
+from becoming a bloated complicated mess with poor performance when Martin told
+me about some software his friend was working on that originated from Stanford.
+
+The Robot Operating System (ROS) is a framework for splitting software into
+relatively small distributed nodes which send messages to each other. The first
+tutorial on the ROS website involves driving a simulated turtle around in a two
+dimensional window, drawing lines wherever it goes. This is an homage to the
+LOGO educational programming language. I was intrigued from the start since this
+was exact problem I was trying to solve, driving a magnet around on a two
+dimensional plate.
+
+I rewrote all of my magnet automation software to fit into the ROS framework and
+made a working experimental rig capable of interacting with flies and collecting
+data. I split the problem into a set of nodes running independently, sending
+each other messages. For example, there was a node which acquired images from
+the camera and published them to any node who may want to subscribe, like an
+image saving node, an image display GUI node, and image processing nodes. There
+was a node that interacted with the motor controllers and could receive messages
+from a keyboard node, or a joystick node, or an automatic control node.
+
+I think in the end the software ended up working well. There are many ways which
+the software could have been written an any way that worked would have been
+acceptable. Splitting the software into small independent nodes made intuitive
+sense to me at least, making it far easier for me to work on it and understand
+it. I was never able to figure out how to make it easy for a relatively
+inexperienced programmer to use it however and I have been trying to figure that
+out ever since.
+
+It would have been fascinating to combine the interaction software with Kristin
+and Alice's automatic behavioral analysis software so that the motion of the
+magnet could have changed based on the behaviors of the flies in real-time. Back
+then the software and hardware was not fast enough to make that possible, but
+now that some of you have made that work in mere milliseconds, all sorts of new
+and exciting experiments may be possible.
+
+My first few years at Janelia I built several rigs using the Robot Operating
+System.
